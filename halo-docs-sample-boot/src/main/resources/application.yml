@@ -2,5 +2,5 @@ server:
   port: 8085
 spring:
   application:
-    name: httpdoc-sample-boot
+    name: halo-docs-sample-boot
 
