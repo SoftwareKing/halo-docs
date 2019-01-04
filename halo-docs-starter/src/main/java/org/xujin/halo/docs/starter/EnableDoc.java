@@ -1,18 +1,18 @@
 package org.xujin.halo.docs.starter;
 
-import io.httpdoc.core.conversion.Converter;
-import io.httpdoc.core.conversion.StandardConverter;
-import io.httpdoc.core.interpretation.Interpreter;
-import io.httpdoc.core.interpretation.SourceInterpreter;
-import io.httpdoc.core.serialization.Serializer;
-import io.httpdoc.core.supplier.Supplier;
-import io.httpdoc.core.supplier.SystemSupplier;
-import io.httpdoc.core.translation.Translator;
-import io.httpdoc.jackson.serialization.JsonSerializer;
-import io.httpdoc.web.HttpdocConversionProvider;
-import io.httpdoc.web.HttpdocFilterSupport;
-import io.httpdoc.web.HttpdocMergedTranslator;
-import io.httpdoc.web.conversion.ConversionProvider;
+import org.xujin.doc.core.conversion.Converter;
+import org.xujin.doc.core.conversion.StandardConverter;
+import org.xujin.doc.core.interpretation.Interpreter;
+import org.xujin.doc.core.interpretation.SourceInterpreter;
+import org.xujin.doc.core.serialization.Serializer;
+import org.xujin.doc.core.supplier.Supplier;
+import org.xujin.doc.core.supplier.SystemSupplier;
+import org.xujin.doc.core.translation.Translator;
+import org.xujin.docs.jackson.serialization.JsonSerializer;
+import org.xujin.docs.web.HttpdocConversionProvider;
+import org.xujin.docs.web.HttpdocFilterSupport;
+import org.xujin.docs.web.HttpdocMergedTranslator;
+import org.xujin.docs.web.conversion.ConversionProvider;
 import org.springframework.context.annotation.Import;
 
 import javax.servlet.DispatcherType;

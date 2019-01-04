@@ -1,0 +1,23 @@
+package org.xujin.doc.core.annotation;
+
+import java.lang.annotation.*;
+
+/**
+ * 样式
+ *
+ * @author
+ * @date 2018-07-12 14:42
+ **/
+@Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Style {
+
+    /**
+     * 样式：normal|table|grid
+     *
+     * @return 样式
+     */
+    String value();
+
+}
