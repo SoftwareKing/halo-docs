@@ -1,21 +1,19 @@
 package org.xujin.docs.controller;
 
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 import org.xujin.docs.model.Gender;
 import org.xujin.docs.model.LoginResult;
 import org.xujin.docs.model.User;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.Random;
 
 
-@Controller
-@RequestMapping("/login")
-public class LoginAPI {
+@RestController
+@RequestMapping("/login2")
+public class LoginAPI2 {
 
-    @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
     public LoginResult login(String username, String password) {
         LoginResult result = new LoginResult();
@@ -39,12 +37,8 @@ public class LoginAPI {
         return result;
     }
 
-
-
-    @ResponseBody
     @PostMapping("/add")
     public LoginResult addUser(@RequestBody User user) {
-
         LoginResult loginResult=new LoginResult();
         user.setId(Math.abs(new Random().nextLong()));
         user.setUsername("张三");
