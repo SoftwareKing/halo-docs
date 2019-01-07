@@ -30,6 +30,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.xujin.halo.docs</groupId>
             <artifactId>halo-docs-starter</artifactId>
         </dependency>

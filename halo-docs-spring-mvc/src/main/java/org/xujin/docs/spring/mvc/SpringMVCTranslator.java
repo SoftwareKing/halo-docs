@@ -32,6 +32,7 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.xujin.docs.jackson.deserialization.JsonDeserializer;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -47,12 +48,16 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SpringMVCTranslator implements Translator {
+
+
+    private final static ConcurrentHashMap DocsMap=new ConcurrentHashMap();
 
     protected static final String EMPTY = "";
 
@@ -290,8 +295,16 @@ public class SpringMVCTranslator implements Translator {
         return EMPTY;
     }
 
+    /**
+     * todo 分析Controller得到的数据待优化
+     * @param translation
+     * @return
+     */
     @Override
     public Document translate(Translation translation) {
+         if(null!=DocsMap.get("Docs")){
+           return (Document)DocsMap.get("Docs");
+         }
         Document document = new Document();
         document.setHttpdoc(translation.getHttpdoc());
         document.setProtocol(translation.getProtocol());
@@ -301,15 +314,17 @@ public class SpringMVCTranslator implements Translator {
         document.setVersion(translation.getVersion());
         document.setDateFormat(translation.getDateFormat());
         document.setDescription(translation.getDescription());
-
         translate(new ControllerTranslation(translation, document));
-
+        DocsMap.put("Docs",document);
         return document;
     }
 
+    /**
+     * 对
+     * @param translation
+     */
     protected void translate(ControllerTranslation translation) {
         Document document = translation.getDocument();
-
         Map<RequestMappingInfo, HandlerMethod> map = new LinkedHashMap<>();
         Container container = translation.getContainer();
         Collection<ApplicationContext> applications = container.get(ApplicationContext.class).values();

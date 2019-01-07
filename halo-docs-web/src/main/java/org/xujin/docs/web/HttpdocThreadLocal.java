@@ -4,12 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Httpdoc 线程本地变量
+ * 线程本地变量
  *
  * @author
- * @date 2018-04-24 14:37
  **/
 public class HttpdocThreadLocal {
+
     private static final ThreadLocal<HttpServletRequest> REQUEST = new ThreadLocal<>();
     private static final ThreadLocal<HttpServletResponse> RESPONSE = new ThreadLocal<>();
 

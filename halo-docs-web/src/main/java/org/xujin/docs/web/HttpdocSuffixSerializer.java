@@ -14,9 +14,7 @@ import java.util.Map;
 
 /**
  * 智能序列化器
- *
- * @author
- * @date 2018-04-24 13:07
+ * @author xujin
  **/
 public class HttpdocSuffixSerializer implements Serializer, Lifecycle {
     private final Map<String, Serializer> map = LoadKit.load(this.getClass().getClassLoader(), Serializer.class);

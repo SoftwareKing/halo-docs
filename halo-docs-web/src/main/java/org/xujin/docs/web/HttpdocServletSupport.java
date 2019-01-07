@@ -14,7 +14,7 @@ public class HttpdocServletSupport extends HttpdocWebSupport implements Servlet 
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        super.init(new HttpdocServletConfig(this.config = config));
+        super.init(new DocServletConfig(this.config = config));
     }
 
     @Override

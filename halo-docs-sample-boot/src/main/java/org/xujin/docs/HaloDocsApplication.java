@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableDoc(
-        packages = {"org.xujin.docs.controller"},
-        httpdoc = "服务名称",
-        version = "服务版本",
-        description = "服务描述-支持HTML语法。"
+        packages = {"org.xujin.docs.controller","org.xujin.docs.controller2"},
+        httpdoc = "账户系统服务",
+        version = "服务版本 1.2.0",
+        description = "提供账户系统服务在线调试接口"
 )
 public class HaloDocsApplication {
     public static void main(String[] args) {

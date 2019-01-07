@@ -10,7 +10,7 @@ import org.xujin.doc.core.supplier.SystemSupplier;
 import org.xujin.doc.core.translation.Translator;
 import org.xujin.docs.jackson.serialization.JsonSerializer;
 import org.xujin.docs.web.HttpdocConversionProvider;
-import org.xujin.docs.web.HttpdocFilterSupport;
+import org.xujin.docs.web.DocFilter;
 import org.xujin.docs.web.HttpdocMergedTranslator;
 import org.xujin.docs.web.conversion.ConversionProvider;
 import org.springframework.context.annotation.Import;
@@ -40,12 +40,12 @@ public @interface EnableDoc {
     /**
      * @return Filter name
      */
-    String name() default "httpdoc";
+    String name() default "HaloDocs";
 
     /**
      * @return Filter bean name
      */
-    String bean() default "httpdoc";
+    String bean() default "HaloDocs";
 
     /**
      * @return Filter async supported
@@ -75,7 +75,7 @@ public @interface EnableDoc {
     /**
      * @return Filter Class
      */
-    Class<? extends Filter> filter() default HttpdocFilterSupport.class;
+    Class<? extends Filter> filter() default DocFilter.class;
 
     /**
      * @return Filter Order
@@ -143,26 +143,32 @@ public @interface EnableDoc {
     Class<? extends Translator> translator() default HttpdocMergedTranslator.class;
 
     /**
+     * Java基本类型提供者
      * @return Document Supplier
      */
     Class<? extends Supplier> supplier() default SystemSupplier.class;
 
     /**
+     * Java Doc源代码拦截器，获取Java Doc信息
      * @return Document Interpreter
      */
     Class<? extends Interpreter> interpreter() default SourceInterpreter.class;
 
     /**
+     * 文档转换器
+     * 所有Controller或者Rest Controller注解的来源
      * @return Document Converter
      */
     Class<? extends Converter> converter() default StandardConverter.class;
 
     /**
+     * 文档序列化工具
      * @return Document Serializer
      */
     Class<? extends Serializer> serializer() default JsonSerializer.class;
 
     /**
+     * 配置类转换器提供者
      * @return Document Conversion Provider
      */
     Class<? extends ConversionProvider> conversionProvider() default HttpdocConversionProvider.class;

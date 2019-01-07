@@ -27,6 +27,7 @@ public class StandardConverter implements Converter, Comparator<Map.Entry<String
 
     @Override
     public Map<String, Object> convert(Document document, Format format) {
+        //获取所有的Controller
         for (Controller controller : document.getControllers()) {
             for (Operation operation : controller.getOperations()) {
                 for (Parameter parameter : operation.getParameters()) {

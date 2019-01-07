@@ -274,3 +274,24 @@ body {
 .btn-group > .btn {
     border-radius: 0 !important;
 }
+
+.swagger-ui-wrap {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.swagger-ui-wrap a {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    background: transparent url(../images/fogcloud-ico.svg) no-repeat left center;
+    background-size: 45%;
+    padding: 21px 0 20px 69px;
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
