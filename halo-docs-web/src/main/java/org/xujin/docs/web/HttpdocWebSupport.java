@@ -59,7 +59,7 @@ public abstract class HttpdocWebSupport implements Handler {
     private Map<String, Handler> handlers = LoadKit.load(this.getClass().getClassLoader(), Handler.class);
     private Map<String, Exporter> exporters = LoadKit.load(this.getClass().getClassLoader(), Exporter.class);
 
-    public void init(HttpdocWebConfig config) throws ServletException {
+    public void init(DocWebConfig config) throws ServletException {
         try {
             String packages = config.getInitParameter("packages");
             if (packages == null || packages.trim().length() == 0) {
@@ -206,6 +206,7 @@ public abstract class HttpdocWebSupport implements Handler {
             Map<String, String[]> map = request.getParameterMap();
             assign("translation", translation, map);
 
+            //开始-转换在线测试文档
             Document doc = translator.translate(translation);
             for (Map.Entry<String, Exporter> entry : exporters.entrySet()) {
                 Sdk sdk = new Sdk();

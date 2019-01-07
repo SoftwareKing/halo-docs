@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="90.5px" height="90.5px" viewBox="0 0 90.5 90.5" enable-background="new 0 0 90.5 90.5" xml:space="preserve">
+<circle fill="#4CAF50" cx="45.25" cy="45.25" r="45.25"/>
+<g>
+	<path fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" d="M45.25,65.733H25h0.91
+		c-8.192,0-14.833-6.641-14.833-14.833s6.641-14.833,14.833-14.833"/>
+</g>
+<line fill="none" stroke="#4CAF50" stroke-width="10" stroke-miterlimit="10" x1="21.083" y1="23.983" x2="21.083" y2="51.816"/>
+<g>
+	<line fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" x1="29.91" y1="36.066" x2="45.25" y2="36.066"/>
+	<path fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" d="M29.583,53.9V31v0.066
+		c0-8.652,7.014-15.667,15.667-15.667"/>
+</g>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="71.14" y1="32.7121" x2="43.6415" y2="21.4173">
+	<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	<stop  offset="1" style="stop-color:#000000"/>
+</linearGradient>
+<polyline opacity="0.3" fill="url(#SVGID_1_)" points="63.25,37.9 45.25,20.4 45.25,13.65 62.167,26.983 "/>
+<g>
+	<defs>
+		<circle id="SVGID_6_" cx="45.25" cy="45.25" r="45.25"/>
+	</defs>
+	<clipPath id="SVGID_3_">
+		<use xlink:href="#SVGID_6_"  overflow="visible"/>
+	</clipPath>
+	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="105.2605" y1="70.1752" x2="47.7128" y2="46.5381">
+		<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</linearGradient>
+	<polyline opacity="0.3" clip-path="url(#SVGID_3_)" fill="url(#SVGID_4_)" points="65.25,89.65 45.25,70.65 45.25,61.65 
+		71.746,60.65 78.375,50.9 74,41.108 62.5,31.066 57.5,14.65 99.687,54.4 	"/>
+</g>
+<g>
+	<path fill="none" stroke="#B2FF59" stroke-width="10" stroke-miterlimit="10" d="M45.25,65.733h19.18h-0.1
+		c8.192,0,14.833-6.641,14.833-14.833S72.522,36.066,64.33,36.066"/>
+	<path fill="none" stroke="#B2FF59" stroke-width="10" stroke-miterlimit="10" d="M45.25,15.4c8.652,0,15.667,7.014,15.667,15.667
+		V31v10.108"/>
+</g>
+</svg>

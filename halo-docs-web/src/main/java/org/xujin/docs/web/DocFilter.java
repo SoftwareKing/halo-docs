@@ -4,16 +4,15 @@ import javax.servlet.*;
 import java.io.IOException;
 
 /**
- * Httpdoc Filter 支持
- *
+ * 文档中心默认Filter入口
  * @author
  * @date 2018-04-20 12:13
  **/
-public class HttpdocFilterSupport extends HttpdocWebSupport implements Filter {
+public class DocFilter extends HttpdocWebSupport implements Filter {
 
     @Override
     public void init(FilterConfig config) throws ServletException {
-        super.init(new HttpdocFilterConfig(config));
+        super.init(new DocFilterConfig(config));
     }
 
     @Override

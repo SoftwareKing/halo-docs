@@ -10,10 +10,10 @@ import java.util.Enumeration;
  * @author
  * @date 2018-04-24 11:27
  **/
-public class HttpdocServletConfig implements HttpdocWebConfig {
+public class DocServletConfig implements DocWebConfig {
     private final ServletConfig config;
 
-    HttpdocServletConfig(ServletConfig config) {
+    DocServletConfig(ServletConfig config) {
         this.config = config;
     }
 

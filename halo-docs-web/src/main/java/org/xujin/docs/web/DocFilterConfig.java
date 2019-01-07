@@ -10,10 +10,10 @@ import java.util.Enumeration;
  * @author
  * @date 2018-04-24 11:26
  **/
-public class HttpdocFilterConfig implements HttpdocWebConfig {
+public class DocFilterConfig implements DocWebConfig {
     private final FilterConfig config;
 
-    HttpdocFilterConfig(FilterConfig config) {
+    DocFilterConfig(FilterConfig config) {
         this.config = config;
     }
 

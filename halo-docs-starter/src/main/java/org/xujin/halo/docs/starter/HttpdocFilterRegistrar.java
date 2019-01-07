@@ -16,8 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * HttpDoc Filter 注册器
- *
+ *  Docs Filter 注册器
  * @author
  * @date 2018-08-08 9:54
  **/
@@ -26,6 +25,8 @@ public class HttpdocFilterRegistrar implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         AnnotationAttributes attributes = AnnotationAttributes.fromMap(importingClassMetadata.getAnnotationAttributes(EnableDoc.class.getName()));
+
+
         BeanDefinition httpdoc = new RootBeanDefinition(FilterRegistrationBean.class);
 
         String name = attributes.getString("name");

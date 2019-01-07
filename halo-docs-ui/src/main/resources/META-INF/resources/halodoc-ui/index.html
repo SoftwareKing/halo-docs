@@ -9,14 +9,11 @@
 </head>
 <body>
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default" role="navigation" style="border-radius: 0; border-width: 0 0 1px 0; margin: 0;">
+<nav class="navbar navbar-default" role="navigation" style="background-color: #4CAF50;padding: 20px; border-radius: 0; border-width: 0 0 1px 0; margin: 0;">
     <div class="container">
         <div class="col-md-2">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#" target="_blank">
-                    Doc UI
-                    <span class="badge">v1.6.4</span>
-                </a>
+            <div class="swagger-ui-wrap">
+                <a id="logo" href="/" target="_blank">文档中心</a>
             </div>
         </div>
         <div class="col-md-8">
@@ -34,7 +31,7 @@
                 <li><a href="#" data-toggle="modal" data-target="#httpdoc-config">Settings</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        SDK <b class="caret"></b>
+                        接入 <b class="caret"></b>
                     </a>
                     <ul id="httpdoc-sdks" class="dropdown-menu">
 
@@ -45,7 +42,7 @@
     </div>
 </nav>
 <div id="httpdoc-head" class="row-fluid">
-
+    <i class="fa fa-times-circle" style="position: absolute;font-size: 18px; top: 15px; right: 15px; cursor: pointer;color: rgba(255,255,255,0.95);" aria-hidden="true"></i>
 </div>
 <div id="httpdoc-body" class="row-fluid" style="display: none;">
     <div class="container">
