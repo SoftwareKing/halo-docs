@@ -11,8 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         version = "服务版本",
         description = "服务描述-支持HTML语法。"
 )
-public class HalodocApplication {
+public class HaloDocsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HalodocApplication.class, args);
+        SpringApplication.run(HaloDocsApplication.class, args);
     }
 }

@@ -13,7 +13,7 @@ import java.util.Collection;
 /**
  * 缺省的翻译器
  *
- * @author
+ * @author xujin
  * @date 2018-04-23 16:16
  **/
 public class HttpdocMergedTranslator implements Translator, Lifecycle {

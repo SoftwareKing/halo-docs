@@ -7,7 +7,7 @@ import java.lang.reflect.Type;
 /**
  * 基本资源模型提供者
  *
- * @author
+ * @author xujin
  * @date 2018-04-16 13:42
  **/
 public interface Supplier {
