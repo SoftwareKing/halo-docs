@@ -22,6 +22,7 @@
         <module>halo-docs-gson</module>
         <module>halo-docs-starter</module>
         <module>halo-docs-ui</module>
+        <module>halo-docs-iui</module>
         <module>halo-docs-sample-boot</module>
         <module>halo-docs-server</module>
     </modules>
@@ -71,6 +72,12 @@
             <dependency>
                 <groupId>org.xujin.halo.docs</groupId>
                 <artifactId>halo-docs-web</artifactId>
+                <version>v1.6.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.xujin.halo.docs</groupId>
+                <artifactId>halo-docs-iui</artifactId>
                 <version>v1.6.4</version>
             </dependency>
 

@@ -1,4 +1,4 @@
-package com.bkjk.platform.halo.config;
+package org.xujin.halo.docs.config;
 
 import org.springframework.cloud.netflix.zuul.filters.Route;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;

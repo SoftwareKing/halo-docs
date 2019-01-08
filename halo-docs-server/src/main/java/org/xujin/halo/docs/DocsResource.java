@@ -1,4 +1,4 @@
-package com.bkjk.platform.halo;
+package org.xujin.halo.docs;
 
 /**
  * @author xujin

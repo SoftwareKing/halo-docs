@@ -1,6 +1,6 @@
-package com.bkjk.platform.halo.Controller;
+package org.xujin.halo.docs.Controller;
 
-import com.bkjk.platform.halo.DocsResource;
+import org.xujin.halo.docs.DocsResource;
 import org.springframework.cloud.netflix.zuul.filters.Route;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
 import org.springframework.web.bind.annotation.GetMapping;

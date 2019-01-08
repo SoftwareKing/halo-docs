@@ -1,4 +1,4 @@
-package com.bkjk.platform.halo.config;
+package org.xujin.halo.docs.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -19,6 +19,13 @@ public class ApplicationExceptionAdapter extends WebMvcConfigurerAdapter {
 				.addResourceLocations("classpath:/META-INF/resources/");
 		registry.addResourceHandler("/webjars/**")
 				.addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+		registry.addResourceHandler("halodoc-ui/index.html")
+				.addResourceLocations("classpath:/META-INF/resources/");
+
+		registry.addResourceHandler("/halodoc-ui/**")
+				.addResourceLocations("classpath:/META-INF/resources/halodoc-ui/");
+
 	}
 
 	/**
