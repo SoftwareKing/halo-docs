@@ -15,6 +15,12 @@ import java.util.Random;
 @RequestMapping("/login")
 public class LoginAPI {
 
+    /**
+     * 登录
+     * @param username
+     * @param password
+     * @return
+     */
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
     public LoginResult login(String username, String password) {

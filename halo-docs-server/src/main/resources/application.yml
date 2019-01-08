@@ -1,11 +1,10 @@
 server:
-  port: 8085
+  port: 8081
 spring:
   application:
-    name: halo-docs-sample-boot
+    name: halo-docs
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka.springcloud.cn/eureka/
-
