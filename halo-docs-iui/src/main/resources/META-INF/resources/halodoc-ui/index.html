@@ -8,9 +8,130 @@
     <script src="./js/autosize-4.0.2.js"></script>
     <style>
       /* override bootstrap styles */
+      .dropdown.app {
+        width: 220px;
+      }
+      .dropdown.type {
+        width: 110px;
+      }
+      .dropdown.customize {
+        border: 1px solid #ededed;
+        background: white;
+        border-radius: 4px;
+      }
+      .dropdown.customize a {
+        padding: 6px 15px;
+        color: black !important;
+      }
+      .dropdown.customize a:hover {
+        color: #666666 !important;
+      }
       .navbar-nav > .dropdown.open > a {
         background-color: transparent !important;
       }
+      .navbar-nav > * {
+        font-size: 16px !important;
+        text-align: left;
+      }
+      .dropdown-menu {
+        left: -1px !important;
+        border: none !important;
+      }
+      .type > .dropdown-menu {
+        width: 110px;
+        min-width: 0px !important;
+      }
+      .app > .dropdown-menu {
+        width: 220px;
+      }
+      .dropdown-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .dropdown-menu * {
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-height: 70vh;
+        overflow: scroll;
+        font-size: 16px !important;
+      }
+      .jumbotron {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+    </style>
+    <style>
+      /* new styles */
+      .tips * {
+        font-size: 16px;
+      }
+      .tips {
+        top: 120px;
+        z-index: 999;
+        position: fixed;
+        right: 0;
+        margin: 32px;
+        width: 320px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+      }
+      .tips h3 {
+        margin-top: 0;
+        padding: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border-bottom: 1px solid #ccc;
+        border-radius: 8px 8px 0 0;
+      }
+      .tips p {
+        line-height: 1.4em;
+        padding: 0 0 10px 0;
+        color: #333333;
+        margin: 16px;
+      }
+      .application-list {
+        margin-top: 40px;
+      }
+      .ip-list {
+        position: absolute;
+        left: 360px;
+        top: 0;
+        margin-top: 20px;
+      }
+      .ip-list-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 550px;
+      }
+      .ip-list-name {
+        font-size: 14px;
+        font-weight: 400;
+        margin-left: 6px;
+      }
+
+      .code {
+        background-color: rgba(27,31,35,.05) !important;
+        border: 1px solid #5cb85c !important;
+        padding: 10px;
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+      }
+      .code.example {
+        background-color: #fff8dd !important;
+        border-color: #eedaa6 !important;
+      }
+      .httpdoc-example .title {
+        color: #E1CF9E;
+      }
+      .httpdoc-result .title {
+        color: #5cb85c;
+      }
+
     </style>
   </head>
   <body>
@@ -18,11 +139,12 @@
     <nav
       class="navbar navbar-default"
       role="navigation"
-      style="background-color: #4CAF50;padding: 20px; border-radius: 0; border-width: 0 0 1px 0; margin: 0;"
+      style="background-color: #4CAF50;padding: 8px; border-radius: 0; border-width: 0 0 1px 0; margin: 0;"
     >
       <div class="container">
         <div class="col-md-2">
-          <div class="swagger-ui-wrap">
+          <div class="swagger-ui-wrap" >
+            <img class="icon" src="./images/fogcloud-ico.svg"></img>
             <a id="logo" href="/" target="_blank">文档中心</a>
           </div>
         </div>
@@ -30,14 +152,14 @@
           <div class="navbar-btn col-md-4">
             <div class="input-group">
               <div class="nav navbar-nav">
-                <li class="dropdown">
+                <li class="dropdown customize app">
                   <a
                     id="httpdoc-url"
                     href="#"
                     class="dropdown-toggle"
                     data-toggle="dropdown"
                   >
-                    默认 <b class="caret"></b>
+                    默认<b class="caret"></b>
                   </a>
                   <ul id="app-list" class="dropdown-menu"></ul>
                 </li>
@@ -46,7 +168,7 @@
           </div>
           <!-- Swagger 默认下拉框 -->
           <div class="navbar-btn nav navbar-nav">
-            <li class="dropdown">
+            <li class="dropdown customize type">
               <a
                 id="select-doc-type"
                 class="dropdown-toggle"
@@ -71,7 +193,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a href="#" data-toggle="modal" data-target="#httpdoc-config"
-                >Settings</a
+                >更多设置</a
               >
             </li>
             <li class="dropdown">
@@ -100,8 +222,24 @@
       ></span>
     </div>
     <div id="httpdoc-body" class="row-fluid" style="display: none;">
+      <div class="tips">
+        <span
+          id="close-tips"
+          class="glyphicon glyphicon-remove-circle"
+          style="position: absolute; top: 16px; right: 16px; font-size: 20px;"
+          aria-hidden="true"
+        ></span>
+        <h3>提示:</h3>
+        <p>
+          API调试工具页面默认展示V2版API，请注意正确选择你使用的版本进行调试。
+        </p>
+        <p>
+          V2版API可以同时兼容V1版本，由于V2版本更强大且更易使用，我们推荐开发者使用V2进行开发。
+        </p>
+        <p>FogCloud文档描述内容为V1版接口，V2版文档正在完善中，敬请期待~！</p>
+      </div>
       <div class="container">
-        <div class="col-md-2">
+        <div class="col-md-2 application-list">
           <div class="input-group">
             <input
               id="controller-filter"
@@ -200,13 +338,29 @@
 
   <script id="tpl-httpdoc-introduction" type="text/html">
     <div class="jumbotron" style="background-color: #f8f8f8; border-bottom: 1px solid #e7e7e7;">
+
         <div class="container">
             <div class="col-md-8 col-md-offset-2">
-                <h2>{{#httpdoc}}{{.}}{{/httpdoc}}{{^httpdoc}}HttpDoc{{/httpdoc}} <label class="badge">{{#version}}{{.}}{{/version}}{{^version}}1.0.0{{/version}}</label></h2>
+                <h2>{{#httpdoc}}{{.}}{{/httpdoc}}{{^httpdoc}}HttpDoc{{/httpdoc}}
+                  <label class="badge">{{#version}}{{.}}{{/version}}{{^version}}1.0.0{{/version}}</label>
+                  <div class="ip-list">
+                    <p>当前服务实例 Host 列表<p>
+                    <div class="ip-list-container">
+                        {{#app.instanceInfoList}}
+                          <div style="margin: 8px;">
+                            <input id={{.}} type='radio' name="ip-list"></input><label class="ip-list-name" for={{.}}>{{.}}</label>
+                          </div>
+                        {{/app.instanceInfoList}}
+                    </div>
+                  </div>
+                </h2>
                 <a href="{{url}}" target="_blank">{{url}}</a>
                 <br/>
                 {{#description}}
-                <h5 class="text-muted">{{{description}}}</h5>
+                <div style="position: relative;">
+                  <h5 class="text-muted">{{{description}}}</h5>
+
+                </div>
                 {{/description}}
                 <p><a href="https://github.com/SoftwareKing/halo-docs" target="_blank">Learn more about Doc</a></p>
             </div>
@@ -608,7 +762,7 @@
                                         x-path="{{path}}"
                                         x-operation="{{id}}"
                                 >
-                                    <b>Try it out</b>
+                                    <b>发送请求</b>
                                 </button>
                             </div>
                             <table class="table">
@@ -638,18 +792,18 @@
                                 <tr class="httpdoc-result" style="display: none;">
                                     <td>
                                         <h5>Response body <span class="badge">body</span></h5>
-                                        <p><b>{{result.type}}</b></p>
+                                        <p class="title"><b>{{result.type}}</b></p>
                                         <h5 class="text-muted">{{result.description}}</h5>
                                     </td>
-                                    <td><textarea class="form-control autosize textarea-model" readonly x-type="{{result.type}}"></textarea></td>
+                                    <td><textarea class="form-control autosize textarea-model code" readonly x-type="{{result.type}}"></textarea></td>
                                 </tr>
                                 <tr class="httpdoc-example">
                                     <td>
                                         <h5>Response example <span class="badge">body</span></h5>
-                                        <p><b>{{result.type}}</b></p>
+                                        <p class="title"><b>{{result.type}}</b></p>
                                         <h5 class="text-muted">{{result.description}}</h5>
                                     </td>
-                                    <td><textarea class="form-control autosize textarea-model" readonly x-type="{{result.type}}">{{result.value}}</textarea></td>
+                                    <td><textarea class="form-control autosize textarea-model code example" readonly x-type="{{result.type}}">{{result.value}}</textarea></td>
                                 </tr>
                                 </tbody>
                             </table>

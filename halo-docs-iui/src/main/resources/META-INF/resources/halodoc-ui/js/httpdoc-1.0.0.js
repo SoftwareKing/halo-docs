@@ -413,8 +413,14 @@ function HttpDoc() {
     {
       var tpl = $('#tpl-httpdoc-introduction').html();
       Mustache.parse(tpl);
+      DOC.app = window.store.selectedApp;
       var html = Mustache.render(tpl, DOC);
       $('#httpdoc-head').html(html);
+      $('input[type=radio][name="ip-list"]').change(function() {
+        window.store.selectedIp = $(this)
+          .next()
+          .text();
+      });
     }
 
     {
@@ -515,8 +521,15 @@ function HttpDoc() {
       });
     }
     {
+      $('#close-tips').click(function() {
+        $('.tips').remove();
+      });
+    }
+    {
       $('#controller-filter').on('change keyup paste', function(e) {
-        var filter = $(this).val();
+        var filter = $(this)
+          .val()
+          .toLowerCase();
         $('#httpdoc-tags')
           .children()
           .each(function(e) {
@@ -1318,9 +1331,17 @@ function HttpDoc() {
         });
     }
 
+    var hostPort = window.store.selectedIp || httpdoc.baseURL();
+    var appName = window.store.selectedIp
+      ? ''
+      : '/' + window.store.selectedApp.name;
+    hostPort = hostPort.replace('http://', '');
+    hostPort = hostPort.split(':');
     var http = new HTTP();
     http.setting = SETTING;
-    http.uri = path;
+    http.setting.hostname = hostPort[0];
+    http.setting.port = hostPort[1];
+    http.uri = appName + path;
     http.method = method;
     http.paths = paths;
     http.matrices = matrices;
@@ -1479,8 +1500,8 @@ function HttpDoc() {
   };
 
   this.baseURL = function() {
-    var DEV = false;
-    var port = DEV ? '8085' : location.port;
+    var DEV = true;
+    var port = DEV ? '8081' : location.port;
     var url = location.protocol + '//' + location.hostname + ':' + port;
     return url;
   };
@@ -1489,6 +1510,7 @@ function HttpDoc() {
     var findApp = window.store.apps.find(function(app) {
       return app.location === location;
     });
+    window.store.selectedApp = findApp;
     $('#httpdoc-url')[0].firstChild.replaceWith(findApp.name);
     var url = httpdoc.baseURL() + location;
     $('#httpdoc-url').val(url);
@@ -1500,13 +1522,23 @@ function HttpDoc() {
     var url = type === '默认' ? '/admin/docsMeteData' : '/swagger-resources';
 
     $.get(httpdoc.baseURL() + url, function(data) {
-      var apps = data ? data : [];
+      var apps = data && data.data ? data.data : [];
       window.store.apps = apps;
       var tpl = $('#tpl-app-list-item').html();
       Mustache.parse(tpl);
       var html = Mustache.render(tpl, apps);
       $('#app-list').html(html);
       if (apps.length) {
+        var selectedApp = $('#httpdoc-url')[0].firstChild.nodeValue;
+        if (selectedApp) {
+          const findApp = apps.find(function(app) {
+            return app.name === selectedApp;
+          });
+          if (findApp) {
+            httpdoc.selectApp(findApp.location);
+            return;
+          }
+        }
         httpdoc.selectApp(apps[0].location);
       }
     });
