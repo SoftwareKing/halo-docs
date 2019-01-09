@@ -10,7 +10,7 @@ public class DocsResource {
     private String name;
     private String location;
     private List<String> instanceInfoList;
-
+    private String swaggerVersion;
     public String getName() {
         return name;
     }
@@ -33,5 +33,13 @@ public class DocsResource {
 
     public void setInstanceInfoList(List<String> instanceInfoList) {
         this.instanceInfoList = instanceInfoList;
+    }
+
+    public String getSwaggerVersion() {
+        return swaggerVersion;
+    }
+
+    public void setSwaggerVersion(String swaggerVersion) {
+        this.swaggerVersion = swaggerVersion;
     }
 }
