@@ -10,6 +10,8 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.xujin.halo.docs.Filter.CorsFillter;
 import org.xujin.halo.docs.starter.EnableDoc;
 
 import javax.servlet.Filter;
@@ -26,6 +28,10 @@ import javax.servlet.Filter;
 @EnableWebMvc
 public class HaloDocsServer {
 
+    /**
+     * 配置错误页
+     * @return
+     */
     @Bean
     public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
         return new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
@@ -36,9 +42,19 @@ public class HaloDocsServer {
             }
         };
     }
+
     @Bean
     public Filter corsFillter() {
         return new CorsFillter();
+    }
+
+    /**
+     * 添加的原因:https://stackoverrun.com/cn/q/9643122
+     * @return
+     */
+    @Bean
+    public InternalResourceViewResolver defaultViewResolver() {
+        return new InternalResourceViewResolver();
     }
 
     public static void main(String[] args) {

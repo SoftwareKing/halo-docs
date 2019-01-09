@@ -8,11 +8,8 @@
 
 通过Swagger获取应用名:http://localhost:8081/swagger-resources
 
-
-
 默认的第二个接口获取接口参数信息:http://localhost:8081/halo-docs-sample-boot/docs
 
 Swaggerer第二个接口获取接口参数信息http://localhost:8081/halo-docs-sample-boot/v2/api-docs
-
 
 ## 文档中心优先级显示设置

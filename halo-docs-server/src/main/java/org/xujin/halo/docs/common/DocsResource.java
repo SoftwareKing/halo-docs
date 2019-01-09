@@ -1,4 +1,4 @@
-package org.xujin.halo.docs;
+package org.xujin.halo.docs.common;
 
 import java.util.List;
 

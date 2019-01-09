@@ -1,4 +1,4 @@
-package org.xujin.halo.docs;
+package org.xujin.halo.docs.Filter;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.util.StringUtils;
