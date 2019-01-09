@@ -1,5 +1,7 @@
 package org.xujin.halo.docs;
 
+import java.util.List;
+
 /**
  * @author xujin
  */
@@ -7,6 +9,7 @@ public class DocsResource {
 
     private String name;
     private String location;
+    private List<String> instanceInfoList;
 
     public String getName() {
         return name;
@@ -24,4 +27,11 @@ public class DocsResource {
         this.location = location;
     }
 
+    public List<String> getInstanceInfoList() {
+        return instanceInfoList;
+    }
+
+    public void setInstanceInfoList(List<String> instanceInfoList) {
+        this.instanceInfoList = instanceInfoList;
+    }
 }

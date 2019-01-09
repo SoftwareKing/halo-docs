@@ -1,5 +1,8 @@
 package org.xujin.halo.docs.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.xujin.halo.docs.DocsResource;
 import org.springframework.cloud.netflix.zuul.filters.Route;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
@@ -16,6 +19,10 @@ public class HaloDocsController {
 
     private final RouteLocator routeLocator;
 
+    @Autowired
+    private DiscoveryClient client;
+
+
     public HaloDocsController(RouteLocator routeLocator) {
         this.routeLocator = routeLocator;
     }
@@ -27,6 +34,14 @@ public class HaloDocsController {
         //在这里遍历的时候，可以排除掉敏感微服务的路由
         routes.forEach(route -> resources.add(docsResource(route.getId(),
                 route.getFullPath().replace("**", "docs"))));
+        for (DocsResource dosc: resources) {
+            List<String> ipList=new ArrayList<>();
+            List<ServiceInstance> instances = client.getInstances(dosc.getName());
+            for (int i = 0; i < instances.size(); i++) {
+                ipList.add(instances.get(i).getHost()+":"+instances.get(i).getPort());
+            }
+            dosc.setInstanceInfoList(ipList);
+        }
         return resources;
 
     }

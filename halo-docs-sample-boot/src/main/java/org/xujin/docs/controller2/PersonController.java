@@ -10,7 +10,7 @@ public class PersonController {
 
     //从前台接收json/xml类型数据
     @PostMapping("/person")
-    Mono<String> create(@RequestBody Publisher<Person> personStream) {
+    Mono<String> create() {
         return Mono.just("Welcome to reactive world ~");
     }
     //得到一个集合
