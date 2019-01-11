@@ -1,9 +1,12 @@
 package org.xujin.docs;
 
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.xujin.halo.docs.starter.EnableDoc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.xujin.halo.docs.starter.EnableDoc;
 
 @SpringBootApplication
 @EnableDoc(
@@ -14,6 +17,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 )
 @EnableDiscoveryClient
 public class HaloDocsApplication {
+
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedHeaders("*")
+                        .allowedMethods("*")
+                        .allowedOrigins("*");
+            }
+        };
+    }
+
+
     public static void main(String[] args) {
         SpringApplication.run(HaloDocsApplication.class, args);
     }
