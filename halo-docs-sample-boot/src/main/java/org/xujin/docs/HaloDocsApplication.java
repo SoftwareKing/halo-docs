@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableDoc(
-        packages = {"org.xujin.docs.controller","org.xujin.docs.controller2"},
+        packages = {"org.xujin.docs.controller"},
         httpdoc = "账户系统服务",
         version = "服务版本 1.2.0",
         description = "提供账户系统服务在线调试接口"
