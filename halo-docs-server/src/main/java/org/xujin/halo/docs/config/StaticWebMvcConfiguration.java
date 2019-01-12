@@ -16,6 +16,8 @@ public class StaticWebMvcConfiguration extends WebMvcConfigurationSupport {
 
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/META-INF/resources/", "classpath:/static/");
+
+        /**
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
@@ -25,13 +27,12 @@ public class StaticWebMvcConfiguration extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/");
 
         registry.addResourceHandler("/halodoc-ui/**")
-                .addResourceLocations("classpath:/META-INF/resources/halodoc-ui/");
+                .addResourceLocations("classpath:/META-INF/resources/halodoc-ui/");**/
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("forward:/halodoc-ui/index.html");
-        //registry.addViewController("/").setViewName("redirect:/index.html");
+        registry.addViewController("/").setViewName("forward:/index.html");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
         super.addViewControllers(registry);
     }
