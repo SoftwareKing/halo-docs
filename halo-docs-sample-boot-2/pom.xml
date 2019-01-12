@@ -9,8 +9,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>halo-docs-sample-boot</artifactId>
-    <name>halo-docs-sample-boot</name>
+    <artifactId>halo-docs-sample-boot-2</artifactId>
+    <name>halo-docs-sample-boot-2</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,6 +55,10 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
+
+
+
+
 
 
     </dependencies>

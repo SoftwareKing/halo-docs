@@ -1,0 +1,11 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: halo-docs-sample-boot
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka.springcloud.cn/eureka/
+

@@ -23,7 +23,8 @@
         <module>halo-docs-starter</module>
         <module>halo-docs-ui</module>
         <module>halo-docs-iui</module>
-        <module>halo-docs-sample-boot</module>
+        <module>halo-docs-sample-boot-1</module>
+        <module>halo-docs-sample-boot-2</module>
         <module>halo-docs-server</module>
     </modules>
     <properties>
