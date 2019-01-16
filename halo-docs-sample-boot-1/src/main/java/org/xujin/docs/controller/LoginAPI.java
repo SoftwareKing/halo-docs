@@ -1,5 +1,7 @@
 package org.xujin.docs.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.xujin.docs.model.Gender;
 import org.xujin.docs.model.LoginResult;
 import org.xujin.docs.model.User;
@@ -7,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.Random;
 
@@ -14,6 +18,7 @@ import java.util.Random;
 @Controller
 @RequestMapping("/login")
 public class LoginAPI {
+
 
     /**
      * 登录
@@ -23,7 +28,23 @@ public class LoginAPI {
      */
     @ResponseBody
     @RequestMapping(method = RequestMethod.GET)
-    public LoginResult login(String username, String password) {
+    public LoginResult login(HttpServletRequest request,@RequestHeader HttpHeaders headers, String username, String password) {
+        System.out.println("from request:" + request.getHeader("code"));
+        System.out.println("from parameter:" + headers.getFirst("code"));
+        // 读取cookie
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            // 遍历数组
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("xujin")) {
+                    // 取出cookie的值
+                    String value = cookie.getValue();
+                    System.out.println("from cookie:" + value);
+
+                }
+            }
+        }
+
         LoginResult result = new LoginResult();
 
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
