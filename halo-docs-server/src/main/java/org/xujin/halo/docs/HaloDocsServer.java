@@ -1,5 +1,6 @@
 package org.xujin.halo.docs;
 
+import com.netflix.loadbalancer.IRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
@@ -12,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.xujin.halo.docs.Filter.CorsFillter;
+import org.xujin.halo.docs.ribbon.InstanceInfoByIpRibbonRule;
 import org.xujin.halo.docs.starter.EnableDoc;
 
 import javax.servlet.Filter;
@@ -55,6 +57,15 @@ public class HaloDocsServer {
     @Bean
     public InternalResourceViewResolver defaultViewResolver() {
         return new InternalResourceViewResolver();
+    }
+
+    /**
+     * 自定义Ribbon支持指定Ip调用
+     * @return
+     */
+    @Bean
+    public IRule instanceInfoByIpRibbonRule(){
+        return new InstanceInfoByIpRibbonRule();
     }
 
     public static void main(String[] args) {

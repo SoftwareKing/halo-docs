@@ -19,6 +19,7 @@ import org.xujin.halo.docs.starter.EnableDoc;
 public class HaloDocsApplication {
 
 
+    /**
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -30,7 +31,7 @@ public class HaloDocsApplication {
                         .allowedOrigins("*");
             }
         };
-    }
+    }**/
 
 
     public static void main(String[] args) {

@@ -6,6 +6,7 @@ spring:
 
 eureka:
   client:
+    registerWithEureka: true
     serviceUrl:
       defaultZone: http://eureka.springcloud.cn/eureka/
 
