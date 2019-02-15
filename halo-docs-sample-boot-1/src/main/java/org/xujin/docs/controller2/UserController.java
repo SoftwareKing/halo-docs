@@ -1,4 +1,4 @@
-package org.xujin.docs.controller;
+package org.xujin.docs.controller2;
 
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.RequestBody;
